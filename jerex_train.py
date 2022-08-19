@@ -20,7 +20,8 @@ def train(cfg: TrainConfig) -> None:
     util.config_to_abs_paths(cfg.misc, 'cache_path')
 
     from clearml import Task
-    Task.add_requirements("hydra-core")
+    Task.force_requirements_env_freeze(force=True, requirements_file='requirements.txt')
+    # Task.add_requirements("hydra-core")
     task = Task.init(project_name='Jerex_DWIE', task_name='train Jerex')
     task.connect(cfg)
 
