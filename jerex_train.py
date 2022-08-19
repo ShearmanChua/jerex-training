@@ -26,7 +26,7 @@ def train(cfg: TrainConfig) -> None:
     task.connect(cfg)
 
     if cfg.clearml.remote:
-        task.set_base_docker("nvcr.io/nvidia/pytorch:20.12-py3")
+        task.set_base_docker("nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04")
         task.execute_remotely()
 
     clearml_train_path = get_clearml_file_path(cfg.clearml.dataset_project,cfg.clearml.dataset_name,cfg.clearml.train_file_name)
