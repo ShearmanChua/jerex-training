@@ -67,3 +67,10 @@ hydra:
   run:
     dir: ./data/runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
   output_subdir: run_config
+
+clearml:
+  dataset_project: datasets/jerex_DWIE
+  dataset_name: DWIE data
+  train_file_name: train_joint.json
+  valid_file_name: test_joint.json
+  types_file_name: types.json

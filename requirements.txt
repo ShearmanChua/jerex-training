@@ -6,3 +6,4 @@ tqdm==4.43.0
 hydra-core==1.0.6
 transformers[sentencepiece]==4.5.1
 Jinja2==2.11.3
+clearml
