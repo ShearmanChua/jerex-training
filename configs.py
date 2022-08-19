@@ -182,6 +182,14 @@ class LoggingConfig:
     flush_logs_every_n_steps: int = 1000
     log_every_n_steps: int = 1000
 
+@dataclass
+class ClearmlConfig:
+    dataset_project: str = "datasets/jerex_DWIE"
+    dataset_name: str = "DWIE data"
+    train_file_name: str = "train_joint.json"
+    valid_file_name: str = "test_joint.json"
+    types_file_name: str = "types.json"
+
 
 @dataclass
 class TrainConfig:
@@ -193,6 +201,7 @@ class TrainConfig:
     training: TrainingConfig = TrainingConfig()
     distribution: DistributionConfig = DistributionConfig()
     misc: MiscConfig = MiscConfig()
+    clearml: ClearmlConfig = ClearmlConfig()
 
 
 @dataclass

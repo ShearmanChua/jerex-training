@@ -21,6 +21,7 @@ def train(cfg: TrainConfig) -> None:
 
     from clearml import Task
     task = Task.init(project_name='Jerex_DWIE', task_name='train Jerex')
+    task.set_base_docker("nvcr.io/nvidia/pytorch:20.12-py3")
     task.connect(cfg)
 
     task.execute_remotely()
