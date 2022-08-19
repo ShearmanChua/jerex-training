@@ -189,6 +189,7 @@ class ClearmlConfig:
     train_file_name: str = "train_joint.json"
     valid_file_name: str = "test_joint.json"
     types_file_name: str = "types.json"
+    remote: bool = True
 
 
 @dataclass

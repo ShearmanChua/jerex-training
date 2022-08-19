@@ -22,10 +22,11 @@ def train(cfg: TrainConfig) -> None:
     from clearml import Task
     Task.add_requirements("hydra-core")
     task = Task.init(project_name='Jerex_DWIE', task_name='train Jerex')
-    task.set_base_docker("nvcr.io/nvidia/pytorch:20.12-py3")
     task.connect(cfg)
 
-    task.execute_remotely()
+    if cfg.clearml.remote:
+        task.set_base_docker("nvcr.io/nvidia/pytorch:20.12-py3")
+        task.execute_remotely()
 
     clearml_train_path = get_clearml_file_path(cfg.clearml.dataset_project,cfg.clearml.dataset_name,cfg.clearml.train_file_name)
     util.config_clearml_paths(cfg.datasets, 'train_path', clearml_train_path)
