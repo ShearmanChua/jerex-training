@@ -20,6 +20,7 @@ def train(cfg: TrainConfig) -> None:
     util.config_to_abs_paths(cfg.misc, 'cache_path')
 
     from clearml import Task
+    Task.force_requirements_env_freeze(force=True, requirements_file='requirements.txt')
     task = Task.init(project_name='Jerex_DWIE', task_name='train Jerex')
     task.set_base_docker("nvcr.io/nvidia/pytorch:20.12-py3")
     task.connect(cfg)
