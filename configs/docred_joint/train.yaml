@@ -54,7 +54,7 @@ inference:
   max_rel_pairs: null
 
 distribution:
-  gpus: []
+  gpus: [0]
   accelerator: ''
   prepare_data_per_node: false
 
