@@ -42,13 +42,9 @@ def score(gt: List[List[Tuple]], pred: List[List[Tuple]], type_idx=None, print_r
                     pred_flat.append(0)
             else:
                 pred_flat.append(-1)
-
+    type_idx = None
     if type_idx is not None:
-        if labels:
-            labels, labels_str = zip(*[(l.index, l.short_name) for l in labels])
-        else:
-            # corner case: no prediction and ground truth samples
-            labels, labels_str = [0], ['None']
+        labels, labels_str = zip(*[(l.index, l.short_name) for l in labels])
     else:
         labels, labels_str = [0], ['Binary']
 
@@ -61,9 +57,9 @@ def score_single(gt: List[Tuple], pred: List[Tuple], type_idx=None, print_result
 
 
 def _compute_metrics(gt_all, pred_all, labels, labels_str, print_results: bool = False):
-    per_type = prfs(gt_all, pred_all, labels=labels, average=None, zero_division=0)
-    micro = prfs(gt_all, pred_all, labels=labels, average='micro', zero_division=0)[:-1]
-    macro = prfs(gt_all, pred_all, labels=labels, average='macro', zero_division=0)[:-1]
+    per_type = prfs(gt_all, pred_all, labels=labels, average=None)
+    micro = prfs(gt_all, pred_all, labels=labels, average='micro')[:-1]
+    macro = prfs(gt_all, pred_all, labels=labels, average='macro')[:-1]
     total_support = sum(per_type[-1])
 
     if print_results:

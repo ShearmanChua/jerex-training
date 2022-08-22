@@ -224,7 +224,6 @@ class EntityMention:
         self._emid = emid  # ID within the corresponding dataset
 
         self._entity = entity
-
         self._tokens = tokens
         self._sentence = sentence
         self._phrase = phrase
@@ -280,6 +279,55 @@ class EntityMention:
 
     def __hash__(self):
         return hash(self._emid)
+
+    def __str__(self):
+        return self._phrase
+
+
+class Pronoun:
+    def __init__(self, pid: int, tokens: List[Token], phrase: str):
+        self._pid = pid  # ID within the corresponding dataset
+
+        self._tokens = tokens
+        self._phrase = phrase
+
+        self._sentence = None
+
+    @property
+    def tokens(self):
+        return TokenSpan(self._tokens)
+
+    @property
+    def span_start(self):
+        return self._tokens[0].span_start
+
+    @property
+    def span_end(self):
+        return self._tokens[-1].span_end
+
+    @property
+    def span(self):
+        return self.span_start, self.span_end
+
+    @property
+    def phrase(self):
+        return self._phrase
+
+    @property
+    def sentence(self):
+        return self._sentence
+
+    @sentence.setter
+    def sentence(self, sentence):
+        self._sentence = sentence
+
+    def __eq__(self, other):
+        if isinstance(other, Pronoun):
+            return self._pid == other._pid
+        return False
+
+    def __hash__(self):
+        return hash(self._pid)
 
     def __str__(self):
         return self._phrase

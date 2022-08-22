@@ -44,6 +44,7 @@ class DocREDDataset(TorchDataset):
         self._rid = 0
         self._eid = 0
         self._meid = 0
+        self._pid = 0
         self._tid = 0
 
         self._parse_dataset(dataset_path)
@@ -63,7 +64,7 @@ class DocREDDataset(TorchDataset):
         title = doc['title']
         jsents = doc['sents']
         jrelations = doc['labels'] if 'labels' in doc else []
-        jentities = doc['vertexSet']
+        jentities = doc['vertexSet'] if 'vertexSet' in doc else []
 
         # parse tokens
         sentences, doc_encoding = self._parse_sentences(jsents)
@@ -164,9 +165,9 @@ class DocREDDataset(TorchDataset):
         return token
 
     def _create_sentence(self, index: int, tokens: List[Token]) -> Sentence:
-        sentence = Sentence(self._sid, index, tokens)
+        mention = Sentence(self._sid, index, tokens)
         self._sid += 1
-        return sentence
+        return mention
 
     def _create_document(self, tokens, sentences, entities, relations, doc_encoding, title) -> Document:
         document = Document(self._doc_id, tokens, sentences, entities, relations, doc_encoding, title)

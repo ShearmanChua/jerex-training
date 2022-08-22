@@ -119,6 +119,3 @@ def config_to_abs_paths(config, *parameter_names):
         param = getattr(config, param_name)
         if param is not None and param.startswith('./'):
             setattr(config, param_name, to_absolute_path(param))
-
-def config_clearml_paths(config, parameter_name, param):
-    setattr(config, parameter_name, to_absolute_path(param))

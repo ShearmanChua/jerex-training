@@ -1,6 +1,6 @@
 FROM nvcr.io/nvidia/pytorch:20.12-py3
 
-# COPY clearml.conf /root
+COPY clearml.conf /root
 
 RUN mkdir -p /jerex
 WORKDIR /jerex

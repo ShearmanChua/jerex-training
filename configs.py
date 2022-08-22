@@ -28,8 +28,8 @@ class ModelConfig:
     tokenizer_path: str = MISSING
 
     # task-specific thresholds
-    mention_threshold: float = 0.85
-    coref_threshold: float = 0.85
+    mention_threshold: float = 0.80
+    coref_threshold: float = 0.80
     rel_threshold: float = 0.6
 
     # probability of neuron dropout in selected model

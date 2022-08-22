@@ -1,13 +1,16 @@
 dataset:
-  test_path: ./data/datasets/docred_joint/test_joint.json
+  test_path: ./data/datasets/test/test_joint.json
 
 model:
-  model_path: ./data/models/docred_joint/joint_multi_instance/model.ckpt
-  tokenizer_path: ./data/models/docred_joint/joint_multi_instance
-  encoder_config_path: ./data/models/docred_joint/joint_multi_instance
+  model_path: ./data/models/dwie_joint/model.ckpt #./data/models/docred_joint/joint_multi_instance/model.ckpt
+  tokenizer_path: ./data/models/dwie_joint #./data/models/docred_joint/joint_multi_instance
+  encoder_config_path: ./data/models/dwie_joint #./data/models/docred_joint/joint_multi_instance
 
 inference:
   test_batch_size: 1
+  max_spans: 200
+  max_coref_pairs: null
+  max_rel_pairs: 50
 
 distribution:
   gpus: []
