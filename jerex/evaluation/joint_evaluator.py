@@ -57,6 +57,7 @@ class JointEvaluator(Evaluator):
             gt_entities = [conversion.convert_gt_cluster(e, True) for e in doc.entities]
 
             gt_relations = [conversion.convert_gt_relation(rel) for rel in doc.relations]
+            print("gt_relations: ", gt_relations)
             gt_relations_et = [conversion.convert_gt_relation(rel, True) for rel in doc.relations]
 
             converted_docs.append((gt_mentions, gt_clusters, gt_entities, gt_relations, gt_relations_et))
