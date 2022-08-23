@@ -28,8 +28,8 @@ class ModelConfig:
     tokenizer_path: str = MISSING
 
     # task-specific thresholds
-    mention_threshold: float = 0.80
-    coref_threshold: float = 0.80
+    mention_threshold: float = 0.85
+    coref_threshold: float = 0.85
     rel_threshold: float = 0.6
 
     # probability of neuron dropout in selected model
@@ -149,7 +149,7 @@ class MiscConfig:
 
     # logging
     flush_logs_every_n_steps: int = 1000
-    log_every_n_steps: int = 1000
+    log_every_n_steps: int = 50
 
     # deterministic behaviour for experiment reproduction (also set seed in this case)
     deterministic: bool = False
