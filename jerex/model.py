@@ -336,7 +336,7 @@ def train(cfg: TrainConfig):
                          deterministic=cfg.misc.deterministic,
                          accumulate_grad_batches=cfg.training.accumulate_grad_batches,
                          prepare_data_per_node=cfg.distribution.prepare_data_per_node,
-                         num_sanity_val_steps=0)
+                         num_sanity_val_steps=0,val_check_interval=0.2)
 
     trainer.fit(model, datamodule=data_module)
 
