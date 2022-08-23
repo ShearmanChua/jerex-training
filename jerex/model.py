@@ -318,7 +318,7 @@ def train(cfg: TrainConfig):
                        max_span_size=cfg.sampling.max_span_size)
 
     checkpoint_path = 'checkpoint'
-    checkpoint_callback = ModelCheckpoint(dirpath=checkpoint_path, mode='min', monitor='train_loss')
+    checkpoint_callback = ModelCheckpoint(dirpath=checkpoint_path, mode='max', monitor='valid_f1')
     model.save_tokenizer(checkpoint_path)
     model.save_encoder_config(checkpoint_path)
 
