@@ -83,9 +83,11 @@ def convert_pred_relations_raw(rel_clf, entity_pairs):
     rel_class_count = rel_clf.shape[-1]
 
     # get predicted relation labels and corresponding entity pairs
+    print("rel_clf: ", rel_clf)
     rel_clf = rel_clf.view(-1)
     rel_nonzero = rel_clf.nonzero().view(-1)
     rel_scores = rel_clf[rel_nonzero]
+    print("rel_scores: ", rel_scores)
 
     rel_types = rel_nonzero % rel_class_count
     rel_indices = rel_nonzero // rel_class_count
