@@ -14,9 +14,9 @@ model:
   meta_embedding_size: 25
   size_embeddings_count: 30
   ed_embeddings_count: 300
-  token_dist_embeddings_count: 2048
+  token_dist_embeddings_count: 700
   sentence_dist_embeddings_count: 100
-  position_embeddings_count: 2048
+  position_embeddings_count: 700
 
 sampling:
   neg_mention_count: 200
@@ -54,7 +54,7 @@ inference:
   # max_rel_pairs: null
 
 distribution:
-  gpus: [0]
+  gpus: []
   accelerator: ''
   prepare_data_per_node: false
 
