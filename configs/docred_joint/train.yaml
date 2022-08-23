@@ -23,7 +23,7 @@ sampling:
   neg_coref_count: 200
   neg_relation_count: 200
   max_span_size: 10
-  sampling_processes: 8
+  sampling_processes: 1
   # neg_mention_overlap_ratio: 0.5
   # lowercase: false
 
@@ -54,7 +54,7 @@ inference:
   # max_rel_pairs: null
 
 distribution:
-  gpus: []
+  gpus: [0]
   accelerator: ''
   prepare_data_per_node: false
 
