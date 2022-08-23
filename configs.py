@@ -149,7 +149,7 @@ class MiscConfig:
 
     # logging
     flush_logs_every_n_steps: int = 1000
-    log_every_n_steps: int = 50
+    log_every_n_steps: int = 1000
 
     # deterministic behaviour for experiment reproduction (also set seed in this case)
     deterministic: bool = False

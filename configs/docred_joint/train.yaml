@@ -11,12 +11,12 @@ model:
   coref_threshold: 0.85
   rel_threshold: 0.6
   prop_drop: 0.1
-  # meta_embedding_size: 25
-  # size_embeddings_count: 30
-  # ed_embeddings_count: 300
-  # token_dist_embeddings_count: 2048
-  # sentence_dist_embeddings_count: 100
-  # position_embeddings_count: 2048
+  meta_embedding_size: 25
+  size_embeddings_count: 30
+  ed_embeddings_count: 300
+  token_dist_embeddings_count: 2048
+  sentence_dist_embeddings_count: 100
+  position_embeddings_count: 2048
 
 sampling:
   neg_mention_count: 200
