@@ -318,7 +318,7 @@ def train(cfg: TrainConfig):
                        max_span_size=cfg.sampling.max_span_size)
 
     checkpoint_path = 'checkpoint'
-    checkpoint_callback = ModelCheckpoint(dirpath=checkpoint_path, mode='max', monitor='valid_f1')
+    checkpoint_callback = ModelCheckpoint(dirpath=checkpoint_path, mode='min', monitor='train_loss')
     model.save_tokenizer(checkpoint_path)
     model.save_encoder_config(checkpoint_path)
 
@@ -336,7 +336,7 @@ def train(cfg: TrainConfig):
                          deterministic=cfg.misc.deterministic,
                          accumulate_grad_batches=cfg.training.accumulate_grad_batches,
                          prepare_data_per_node=cfg.distribution.prepare_data_per_node,
-                         num_sanity_val_steps=0,val_check_interval=0.2)
+                         num_sanity_val_steps=0)
 
     trainer.fit(model, datamodule=data_module)
 
