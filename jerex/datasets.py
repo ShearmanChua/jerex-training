@@ -91,7 +91,7 @@ class DocREDDataset(TorchDataset):
             sentence_tokens = []
 
             for tok_sent_idx, token_phrase in enumerate(jtokens):
-                token_encoding = self._tokenizer.encode(token_phrase, add_special_tokens=False,truncation=True)
+                token_encoding = self._tokenizer.encode(token_phrase, add_special_tokens=False)
                 if not token_encoding:
                     token_encoding = [self._tokenizer.convert_tokens_to_ids('[UNK]')]
                 span_start, span_end = (len(doc_encoding), len(doc_encoding) + len(token_encoding))

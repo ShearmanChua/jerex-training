@@ -132,13 +132,15 @@ def create_clusters(coref_clf: torch.tensor, mention_pairs: torch.tensor, pair_s
             # apply complete linkage clustering
             agg_clustering = AgglomerativeClustering(n_clusters=None, affinity='precomputed',
                                                      linkage='complete', distance_threshold=1 - threshold)
-            assignments = agg_clustering.fit_predict(distances)
 
-            # convert clusters to list
-            mx = max(assignments)
-            clusters = [[] for _ in range(mx + 1)]
-            for mention_idx, cluster_index in enumerate(assignments):
-                clusters[cluster_index].append(mapping_rev[mention_idx])  # map back
+            if distances.shape[0] > 1:
+                assignments = agg_clustering.fit_predict(distances)
+
+                # convert clusters to list
+                mx = max(assignments)
+                clusters = [[] for _ in range(mx + 1)]
+                for mention_idx, cluster_index in enumerate(assignments):
+                    clusters[cluster_index].append(mapping_rev[mention_idx])  # map back
 
         # -> tensors
         if clusters:
