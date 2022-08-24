@@ -38,11 +38,11 @@ def main():
     # task = Task.init(project_name="ontonotes", task_name="delete dataset")
     # Dataset.delete(dataset_id='c8e87a4a1a804206a9d026a3470247c9')
 
-    task = Task.init(project_name="Jerex_DWIE", task_name="upload Docred data")
+    task = Task.init(project_name="Jerex_DWIE", task_name="upload remapped DWIE data")
     dataset = create_dataset(
-        folder_path="data/datasets/docred_joint",
+        folder_path="data/datasets/dwie_remapped",
         dataset_project="datasets/jerex_DWIE",
-        dataset_name="DOCRED data",
+        dataset_name="DWIE remapped data",
     )
     dataset.finalize()
 

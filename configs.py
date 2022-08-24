@@ -185,9 +185,9 @@ class LoggingConfig:
 @dataclass
 class ClearmlConfig:
     dataset_project: str = "datasets/jerex_DWIE"
-    dataset_name: str = "DOCRED data"
+    dataset_name: str = "DWIE remapped data"
     train_file_name: str = "train_joint.json"
-    valid_file_name: str = "dev_joint.json"
+    valid_file_name: str = "test_joint.json"
     types_file_name: str = "types.json"
     remote: bool = True
 
