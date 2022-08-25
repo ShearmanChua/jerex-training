@@ -35,8 +35,8 @@ def _get_last_child_dataset(dataset_project, dataset_name):
 
 def main():
 
-    # task = Task.init(project_name="ontonotes", task_name="delete dataset")
-    # Dataset.delete(dataset_id='c8e87a4a1a804206a9d026a3470247c9')
+    task = Task.init(project_name="Jerex_DWIE", task_name="delete dataset")
+    Dataset.delete(dataset_id='e28796fbbb2447af95d4e74eb7cc0b36')
 
     task = Task.init(project_name="Jerex_DWIE", task_name="upload remapped DWIE data")
     dataset = create_dataset(
