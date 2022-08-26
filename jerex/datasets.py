@@ -90,6 +90,9 @@ class DocREDDataset(TorchDataset):
         for sidx, jtokens in enumerate(jsentences):
             sentence_tokens = []
 
+            if len(doc_encoding) >= 500:
+                break
+
             for tok_sent_idx, token_phrase in enumerate(jtokens):
                 token_encoding = self._tokenizer.encode(token_phrase, add_special_tokens=False)
                 if not token_encoding:
