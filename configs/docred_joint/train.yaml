@@ -14,15 +14,15 @@ model:
   meta_embedding_size: 25
   size_embeddings_count: 30
   ed_embeddings_count: 300
-  token_dist_embeddings_count: 700
+  token_dist_embeddings_count: 2048
   sentence_dist_embeddings_count: 100
-  position_embeddings_count: 700
+  position_embeddings_count: 2048
 
 sampling:
-  neg_mention_count: 200
-  neg_coref_count: 200
-  neg_relation_count: 200
-  max_span_size: 10
+  neg_mention_count: 100
+  neg_coref_count: 100
+  neg_relation_count: 100
+  max_span_size: 5
   sampling_processes: 1
   # neg_mention_overlap_ratio: 0.5
   # lowercase: false
