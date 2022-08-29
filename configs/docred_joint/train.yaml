@@ -19,9 +19,9 @@ model:
   position_embeddings_count: 2048
 
 sampling:
-  neg_mention_count: 100
-  neg_coref_count: 100
-  neg_relation_count: 100
+  neg_mention_count: 50
+  neg_coref_count: 50
+  neg_relation_count: 50
   max_span_size: 5
   sampling_processes: 1
   # neg_mention_overlap_ratio: 0.5
