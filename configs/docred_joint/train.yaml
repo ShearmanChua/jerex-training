@@ -42,9 +42,9 @@ training:
   weight_decay: 0.01
   max_grad_norm: 1.0
   # accumulate_grad_batches: 1
-  max_spans: 100
-  max_coref_pairs: 100
-  max_rel_pairs: 100
+  max_spans: 50
+  max_coref_pairs: 50
+  max_rel_pairs: 50
 
 inference:
   valid_batch_size: 1
